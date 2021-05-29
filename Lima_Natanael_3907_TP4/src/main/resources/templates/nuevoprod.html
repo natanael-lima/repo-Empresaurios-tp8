@@ -29,18 +29,22 @@
 					  <div class="col-12 col-md-6">
 					    <label for="inputNombre4" class="form-label">Nombre</label>
 					    <input type="text" name="name"  th:field="*{nombre}" class="form-control" placeholder="Ingrese Nombre" id="inputPassword4">
+					    <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
 					  </div>
 					  <div class="col-12 col-md-6">
 					    <label for="inputAddress" class="form-label">Precio</label>
 					    <input type="number" name="precio" th:field="*{precio}" class="form-control" id="inputAddress" placeholder="$123">
+		 				<small class="form-text text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></small>
 					  </div>
 					  <div class="col-12 col-md-6">
 					    <label for="inputAddress2" class="form-label">Marca</label>
 					    <input type="text" name="marca"  th:field="*{marca}" class="form-control" id="inputAddress2" placeholder="Marca..">
+					  <small class="form-text text-danger" th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}"></small>
 					  </div>
 					  <div class="col-12 col-md-6">
 					    <label for="inputCity" class="form-label">Stock</label> 
 					    <input type="number" name="stock" th:field="*{stock}" class="form-control" id="inputCity">
+				        <small class="form-text text-danger" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></small>
 					  </div>
 					  <div class="col-12"><br>
 					    <div class="form-check">

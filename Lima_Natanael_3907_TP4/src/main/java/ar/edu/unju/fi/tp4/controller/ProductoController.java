@@ -2,11 +2,12 @@ package ar.edu.unju.fi.tp4.controller;
 
 import java.util.Optional;
 
-
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,14 +23,10 @@ public class ProductoController {
 	@Autowired
 	private Producto producto;
 
-
 	@Autowired
 	@Qualifier("tableProductoRepository")
 	private IProductoService productoService;
 
-
-	
-	
 	@GetMapping("/index/producto")
 	public String getPageProd(Model model) {
 		model.addAttribute(producto);
@@ -37,16 +34,24 @@ public class ProductoController {
 	}
 
 	@PostMapping("/index/guardar")
-	public String getProceso(@ModelAttribute("producto") Producto producto, Model model) {
+	public String getProceso(@Valid @ModelAttribute("producto") Producto producto, BindingResult result, Model model) {
+		
+		if(result.hasErrors()){
+			
+			model.addAttribute(producto);
+			System.out.println("Hubo errores en el formulario");
+			return "nuevoprod";
+		}
 		productoService.agregarList(producto);
-
 		model.addAttribute("productos", productoService.obtenerListaProducto());
+		System.out.println("Guardo con exito");
 		return "mostrarprod";
 	}
 
 	@GetMapping("/index/ultimo")
 	public String getProcesoUltimo(Model model) {
 		model.addAttribute("productos", productoService.obtenerListaProducto());
+		
 		return "mostrarprod";
 	}
 
