@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/logoIco.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TP4</title>
+</head>
+<body>
+	     
+          <div th:insert="layouts/head :: head"></div>
+    
+		 <h1 class="tab-cliente"> TABLA CLIENTE </h1>
+		 <div class="table-responsive-sm">	
+		 <table class="tab2 table table-bordered table-dark ">
+				  <thead >
+				    <tr>
+				       <th scope="col">TipoDoc</th>
+		               <th scope="col">N° Doc</th>
+		               <th scope="col">Apellido y Nombre</th>
+		               <th scope="col">E-mail</th>
+		               <th scope="col">Nacimiento</th>
+		               
+		               <th scope="col">Telefono</th>
+		               <th scope="col">CuentaSaldo</th>
+		               <th scope="col">CuentaEstado</th>
+		               
+		            
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr  th:each="cli : ${clientes}">
+				      <td th:text="${cli.tipoDocumento}"></td>
+		              <td th:text="${cli.nroDocumento}"></td>
+		              <td th:text="${cli.nombreApellido}"></td>
+		              <td th:text="${cli.mail}"></td>
+		              <td th:text="${#temporals.format(cli.fechaNacimiento,'dd/MM/yyyy')}"></td>
+		       
+		              <td th:text="${cli.codigoAreaTelefono} + '-' + ${cli.nroTelefono}"></td>
+		              <td th:text="${cli.cuenta.saldo}"></td>
+		              <td th:text="${cli.cuenta.estado}"></td>
+		              
+		             
+		            
+		          
+		              
+		               <td><a th:href="@{/index/modificar/}+${cli.codigo}" class="btn btn-light my-2">Editar</a></td>
+		               <td><a th:href="@{/index/eliminar/}+${cli.codigo}" class="btn btn-light my-2">Eliminar</a></td> 
+				    </tr>
+				  
+				  </tbody>
+				</table>
+		 </div>	
+		 
+		 
+		 
+		 
+		 
+		 
+   
+    <div th:insert="layouts/footer :: foot"></div>
+    
+	<!-- JavaScript  Jquery Popper and Bootstrap JS -->
+    <script src="/webjars/jquery/3.5.1/jquery.slim.min.js" ></script>
+    <script src="/webjars/popper.js/1.16.1/dist/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

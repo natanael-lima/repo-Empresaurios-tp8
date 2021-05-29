@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/logoIco.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TP4</title>
+</head>
+<body>
+    
+    <div class="contenedort">
+    <div th:insert="layouts/head :: head"></div>
+
+   <!-- BANNER -->
+		  <section class="banner col-12 text-center container ">
+		    <div class="row py-lg-5">
+		      <div class="col-lg-6 col-md-8 mx-auto">
+		        <h1 class="fw-light" style="color:white" >Producto & Cliente</h1>
+		        <p class="lead text-muted" style="color:white">Trabajo practico con bootstrap.</p>
+		         <p><a href="#" class="btn btn-light my-2">Sobre Bootstrap</a></p>
+		      </div>
+		    </div>
+		  </section>
+		  
+		  
+		  
+		  
+		  
+	<!-- END-BANNER -->
+		
+		
+		
+		
+		  <div class="contenedor bg-light" >
+			<div class="caja1 row ">
+			       <div class="col-9 sec1" style="height: 900px;">
+			       
+						 <!-- TAB -->
+					     <div class="container">
+						  <div class="row align-items-center">
+						    <div class="col-md-12">
+								<div class="row">
+								  <div class="col-sm-4">
+								    <div class="card">
+								      <div class="card-body">
+								        <h5 class="card-title">Ver Tabla Cliente</h5>
+								        <p class="card-text">Se va a mostrar en otra pagina la tabla con clientes que se agregaron en total.</p>
+								        <a href="/index/listado" class="btn btn-dark">Ver</a>
+								      </div>
+								    </div>
+								  </div>
+								  <div class="col-sm-4">
+								    <div class="card">
+								      <div class="card-body">
+								        <h5 class="card-title">Ver Tabla Producto</h5>
+								        <p class="card-text">Se va a mostrar en otra pagina la tabla el ultimo producto que se agrego.</p>
+								        <a href="/index/ultimo" class="btn btn-dark">Ver</a>
+								      </div>
+								    </div>
+								  </div>
+								  <div class="col-sm-4">
+								    <div class="card">
+								      <div class="card-body">
+								        <h5 class="card-title">Ver Tabla Compra</h5>
+								        <p class="card-text">Se va a mostrar en otra pagina la tabla de la compra que se agrego.</p>
+								        <a href="/index/listadoCompra" class="btn btn-dark">Ver</a>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+						    </div>
+						   
+						  </div>
+					    </div>
+					     <!-- FIN-TAB -->
+							 <div class="container">
+							  <div class="row ">
+								<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+							        <div class="col-4 col-sm-6 col-12">
+							          <div class="card shadow-sm">
+							            <img src="../img/1.jpg" alt="" width="100%" height="100%">
+							            <div class="card-body">
+							              <p class="card-text">Bootstrap es una biblioteca multiplataforma o conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web. </p>
+							              <div class="d-flex justify-content-between align-items-center">
+							                <div class="btn-group">
+							                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+							                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+							                </div>
+							                <small class="text-muted">2021</small>
+							              </div>
+							            </div>
+							          </div>
+							        </div>
+							        <div class="col-4 col-sm-6 col-12">
+							          <div class="card shadow-sm">
+							            <img src="../img/2.png" alt="" width="100%" height="100%">
+							            <div class="card-body">
+							              <p class="card-text">Bootstrap es una biblioteca multiplataforma o conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web.</p>
+							              <div class="d-flex justify-content-between align-items-center">
+							                <div class="btn-group">
+							                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+							                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+							                </div>
+							                <small class="text-muted">2021</small>
+							              </div>
+							            </div>
+							          </div>
+							        </div>
+							        <div class="col-4 col-sm-12 col-12">
+							          <div class="card shadow-sm">
+							            <img src="../img/3.jpg" alt="" width="100%" height="100%">
+							            <div class="card-body">
+							              <p class="card-text">Bootstrap es una biblioteca multiplataforma o conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web.</p>
+							              <div class="d-flex justify-content-between align-items-center">
+							                <div class="btn-group">
+							                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+							                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+							                </div>
+							                <small class="text-muted">2021</small>
+							              </div>
+							            </div>
+							          </div>
+							        </div>
+							      </div> 
+							    </div>
+							  </div>   
+					    </div>
+			     
+			         <div class="sec2 col-3 bg-light d-none d-md-block" style="height:900px;">
+					     <!-- Publicidad -->
+					      <aside th:replace="layouts/publicidad :: publicidad"></aside>
+			             <!-- Fin- Publicidad -->			     
+			        </div>
+			   </div>
+			</div>
+
+
+   
+   
+             <div th:insert="layouts/footer :: foot"></div>
+    </div>
+   
+    <!-- JavaScript  Jquery Popper and Bootstrap JS -->
+    <script src="/webjars/jquery/3.5.1/jquery.slim.min.js" ></script>
+    <script src="/webjars/popper.js/1.16.1/dist/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

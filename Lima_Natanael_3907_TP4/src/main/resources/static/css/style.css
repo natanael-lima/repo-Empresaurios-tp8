@@ -1,0 +1,128 @@
+*{
+	margin: 0 auto;
+	font-family: Helvetica;
+	
+}
+
+/* Conetenido */
+.banner{
+	background: url("../img/h4.jpg") no-repeat;	
+	background-size: cover;
+	width: 100%;
+	height: auto;
+}
+
+.contenedor{
+	margin:0 auto;
+	width: 100%;
+	height: 100%;
+	
+}
+.caja1{
+	width:100%;
+	margin:auto;
+}
+
+.card{
+	margin-bottom: 20px;
+}
+
+.sec1{
+ padding: 20px;	
+}
+.sec2{
+	padding: 30px;
+}
+
+/* menu */
+label > a{
+	color:black;
+}
+
+label > a:hover{
+	color:black;
+}
+
+/* formulario */
+#formulario{
+	
+	border-radius:10px;
+	padding:20px;
+	color:black;
+}
+
+
+/*tabla */
+.tab{
+	width: 60%;
+}
+
+/* box-sizing:border-box*/
+
+.tab-cliente{
+	text-align: center;
+	padding: 20px;
+	color:white;
+}
+
+
+/* footer*/
+
+.foot1{
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.foot1 p{
+	max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: yellow;
+}
+
+
+.foote{
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:100px;
+   width:100%;
+   background:#999;
+}
+
+@media screen and ( max-width: 400px) {
+	.contenedor{
+	background: grey;
+    }
+    .contendort{
+    width: 100%;
+    }
+    .col-12{
+    margin-bottom: 100px;
+    }
+}
+

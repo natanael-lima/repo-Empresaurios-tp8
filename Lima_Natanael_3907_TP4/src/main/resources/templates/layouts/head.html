@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/logoIco.ico">
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <title>TP4</title>
+</head>
+<body>
+
+   <div id="header" th:fragment="head">
+     <header>
+       <!-- Image and text -->
+			<nav class="navbar navbar-light bg-dark">
+			  <a class="navbar-brand" href="/index">
+			    <img src="../img/logo.png" width="70" height="30" class="d-inline-block align-top" alt="">
+			  </a>
+			  <div th:insert="layouts/menu :: menu"></div>
+			  
+			</nav>
+
+     </header>
+   </div>
+
+   
+    <!-- JavaScript  Jquery Popper and Bootstrap JS -->
+    <script src="/webjars/jquery/3.5.1/jquery.slim.min.js" ></script>
+    <script src="/webjars/popper.js/1.16.1/dist/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.css"></script>
+    
+</body>
+</html>

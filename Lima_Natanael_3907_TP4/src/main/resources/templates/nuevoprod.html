@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+    <head>
+			<!-- Required meta tags -->
+		    <meta charset="utf-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		    <link rel="icon" href="img/logoIco.ico">
+		    <!-- Bootstrap CSS -->
+		    <link rel="stylesheet" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">
+		    <!-- My CSS -->
+		    <link rel="stylesheet" href="/css/style.css">
+		     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	   <title>Productos</title>
+	</head>
+	<body>
+		       
+		       
+		  <div th:insert="layouts/head :: head"></div>
+      
+	 <div class="contenedor bg-light" >
+	   <h1 style="text-align:center;" class="text-dark"> Formulario</h1>
+		<div class="caja1 row ">     
+		  <div class="col-9 sec1 " style="height: 800px;">
+			 <div id="formulario">
+                 
+					<form class="row g-3" th:action="@{/index/guardar}" th:object="${producto}" method="POST">
+					 <input type="hidden" th:field="*{codigo}">
+					   
+					  <div class="col-12 col-md-6">
+					    <label for="inputNombre4" class="form-label">Nombre</label>
+					    <input type="text" name="name"  th:field="*{nombre}" class="form-control" placeholder="Ingrese Nombre" id="inputPassword4">
+					  </div>
+					  <div class="col-12 col-md-6">
+					    <label for="inputAddress" class="form-label">Precio</label>
+					    <input type="number" name="precio" th:field="*{precio}" class="form-control" id="inputAddress" placeholder="$123">
+					  </div>
+					  <div class="col-12 col-md-6">
+					    <label for="inputAddress2" class="form-label">Marca</label>
+					    <input type="text" name="marca"  th:field="*{marca}" class="form-control" id="inputAddress2" placeholder="Marca..">
+					  </div>
+					  <div class="col-12 col-md-6">
+					    <label for="inputCity" class="form-label">Stock</label> 
+					    <input type="number" name="stock" th:field="*{stock}" class="form-control" id="inputCity">
+					  </div>
+					  <div class="col-12"><br>
+					    <div class="form-check">
+					      <input class="form-check-input" type="checkbox" id="gridCheck">
+					      <label class="form-check-label" for="gridCheck">
+					        Aceptar
+					      </label>
+					    </div>
+					  </div>
+					  <div class="col-12"><br>
+					    <button type="submit" class="btn btn-primary">Enviar</button>
+					  </div>
+				   </form>  
+	            </div>
+		 </div>
+		 
+		 <div class="sec2 col-3 bg-light d-none d-md-block" style="height: 800px;">
+				<!-- Publicidad -->
+			     <aside th:replace="layouts/publicidad :: publicidad"></aside>
+			    <!-- Fin- Publicidad -->			     
+		</div>
+	  </div> 
+    </div> 
+			      
+			      
+			      
+			      
+			      
+			      
+			      
+			      
+			      
+			      
+			      
+			      
+			      
+		      <div th:insert="layouts/footer :: foot"></div>
+		      
+		       <!-- JavaScript  Jquery Popper and Bootstrap JS -->
+    <script src="/webjars/jquery/3.5.1/jquery.slim.min.js" ></script>
+    <script src="/webjars/popper.js/1.16.1/dist/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.css"></script>
+     
+	</body>
+</html>

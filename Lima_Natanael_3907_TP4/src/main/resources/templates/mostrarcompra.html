@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/logoIco.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TP4</title>
+</head>
+<body>
+	     
+          <div th:insert="layouts/head :: head"></div>
+    
+		 <h1 class="tab-cliente"> TABLA CLIENTE </h1>
+		 <div class="table-responsive">	
+		 <table class="tab2 table table-bordered table-dark ">
+				  <thead >
+				    <tr>
+				       <th scope="col">ID</th>
+		               <th scope="col">Cantidad</th>
+		               <th scope="col">ProductoNombre</th>
+		               <th scope="col">ProductoPrecio</th>
+		               <th scope="col">ProductoStock</th>
+		               <th scope="col">Total</th>
+		   
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr  th:each="c : ${compras}">
+				      <td th:text="${c.id}"></td>
+		              <td th:text="${c.cantidad}"></td>
+		              <td th:text="${c.producto.nombre}"></td>
+		              <td th:text="${c.producto.precio}"></td>
+		              <td th:text="${c.producto.stock}"></td>
+		              <td th:text="${c.total}"></td>
+				      <td><a th:href="@{/index/modificarCompra/}+${c.id}" class="btn btn-light my-2">Editar</a></td>
+		              <td><a th:href="@{/index/eliminarCompra/}+${c.id}" class="btn btn-light my-2">Eliminar</a></td>
+				  </tbody>
+				</table>
+		 </div>	
+		 
+		 
+		 
+		 
+		 
+		 
+   
+    <div th:insert="layouts/footer :: foot"></div>
+    
+	<!-- JavaScript  Jquery Popper and Bootstrap JS -->
+    <script src="/webjars/jquery/3.5.1/jquery.slim.min.js" ></script>
+    <script src="/webjars/popper.js/1.16.1/dist/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

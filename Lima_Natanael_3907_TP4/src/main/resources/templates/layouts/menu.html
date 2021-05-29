@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/logoIco.ico">
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>TP4</title>
+</head>
+<body>
+
+		   <div id="menu" th:fragment="menu">
+		       <nav class="navbar navbar-light bg-dark">
+				  <form class="form-inline">
+					  <div class="btn-group" role="group" aria-label="Basic example">
+					  <a type="button" class="btn btn-light" href="/index">Inicio</a>
+					  <a type="button" class="btn btn-light" href="/index/producto">Agregar Producto</a>
+					  <a type="button" class="btn btn-light" href="/index/cliente">Agregar Cliente</a>
+					  <a type="button" class="btn btn-light" href="/index/compra">Agregar Compra</a>
+					</div>
+				  </form>
+				</nav>
+		   </div>
+
+    <!-- JavaScript  Jquery Popper and Bootstrap JS -->
+    <script src="/webjars/jquery/3.5.1/jquery.slim.min.js" ></script>
+    <script src="/webjars/popper.js/1.16.1/dist/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.css"></script>
+    
+</body>
+</html>

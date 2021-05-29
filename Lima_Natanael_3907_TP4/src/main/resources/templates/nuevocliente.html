@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/logoIco.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TP4</title>
+</head>
+<body>
+    
+    <div th:insert="layouts/head :: head"></div>
+    
+     <div class="contenedor bg-light" >
+        <h1 style="text-align:center;" class="text-dark"> Formulario</h1>
+		<div class="caja1 row ">  
+		   <div class="col-9 sec1 ">
+			 <div id="formulario" >
+					   <form class="row g-3" th:action="@{/index/guardarcliente}" th:object="${cliente}" method="POST">
+					   <input type="hidden" th:field="*{codigo}">
+					   <input type="hidden" th:field="*{cuenta.id}">
+						    <div class="form-group col-md-6">
+						      <label for="inputState">Tipo Documento</label>
+						      <select id="tipoDocumento" class="form-control" th:field="*{tipoDocumento}">
+							    <option value="pasaporte">Pasaporte</option>
+							    <option value="dni">DNI</option>
+						      </select>
+						    </div>
+						  <div class="form-group col-12 col-md-6">
+						    <label for="inputCod4" class="form-label">Ingrese Documento</label>
+						    <input type="number"  th:field="*{nroDocumento}" placeholder="Documento..." class="form-control" id="inputEmail4">
+						  </div>
+						  <div class="form-group col-12 col-md-6">
+						    <label for="inputNombre4" class="form-label">Apellido y Nombre</label>
+						    <input type="text"  th:field="*{nombreApellido}" class="form-control" id="inputAddress" placeholder="Pepito Perez" >
+						  </div>
+						  <div class="form-group col-12 col-md-6">
+						    <label for="mail" class="form-label">Ingrese E-mail</label>
+						    <input type="email"  th:field="*{mail}"  class="form-control" id="inputAddress" placeholder="facu@unju.com">
+						  </div>
+						  <div class=" form-group col-12 col-md-6">
+						    <label for="inputAddress2" class="form-label">Fecha Nacimiento</label>
+						    <input type="date"  th:field="*{fechaNacimiento}" class="form-control" id="inputAddress2">
+						  </div>
+						  <div class="form-group col-12 col-md-6">
+						    <label for="inputAddress2" class="form-label">Password</label>
+						    <input  type="password"  th:field="*{password}" class="form-control" id="inputAddress2" placeholder="Ingrese...">
+						  </div>
+						  <div class=" form-group col-12 col-md-6">
+						    <label for="inputAddress2" class="form-label">Ingrese Codigo</label>
+						    <input type="number" th:field="*{codigoAreaTelefono}" class="form-control" id="inputAddress2" placeholder="Codigo..">
+						  </div>
+						  <div class="form-group col-12 col-md-6">
+						    <label for="inputCity" class="form-label">Telefono</label> 
+						    <input type="number" th:field="*{nroTelefono}" class="form-control" id="inputCity">
+						  </div>
+						  <div class="form-group col-12 col-md-12">
+						   <h2>Datos de cuenta</h2>
+						  </div>
+						  
+						  <div class="form-group col-12 col-md-6">
+						    <label for="saldo" class="form-label">Saldo</label> 
+						    <input type="number" th:field="*{cuenta.saldo}" class="form-control" id="saldo">
+						  </div>
+						  <div class="form-group col-12 col-md-6">
+						    <label for="fechaCreacion" class="form-label">Fecha de creacion</label> 
+						    <input type="date" th:field="*{cuenta.fechaCreacion}" class="form-control" id="fechaCreacion">
+						  </div>
+						  <div class="form-group col-12 col-md-12">
+						    <h3>Estado</h3>
+						    </div>
+						  <div class="form-check">
+							  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" th:field="*{cuenta.estado}" value="Activo">
+							  <label class="form-check-label" for="flexRadioDefault1">
+							    Activa
+							  </label>
+							  
+						  </div>  
+							<div class="form-check">
+							  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" th:field="*{cuenta.estado}" checked value="Inactiva">
+							 <label class="form-check-label" for="flexRadioDefault2">
+							    Inactiva
+							  </label>
+							</div>
+						  
+						  
+						  <div class="form-group col-12"><br>
+						    <button type="submit" class="btn btn-primary">Enviar</button>
+						  </div>
+					   </form>  
+<br>
+<br>
+			 
+			 </div> 
+		 </div>
+		 
+		 <div class="sec2 col-3 bg-light d-none d-md-block">
+				<!-- Publicidad -->
+			     <aside th:replace="layouts/publicidad :: publicidad"></aside>
+			    <!-- Fin- Publicidad -->			     
+		</div>
+	  </div> 
+    </div> 
+		 
+		 
+		
+    
+   <div th:insert="layouts/footer :: foot"></div>
+   
+    <!-- JavaScript  Jquery Popper and Bootstrap JS -->
+    <script src="/webjars/jquery/3.5.1/jquery.slim.min.js" ></script>
+    <script src="/webjars/popper.js/1.16.1/dist/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
