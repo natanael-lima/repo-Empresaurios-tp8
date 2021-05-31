@@ -19,5 +19,6 @@ public interface ICompraService {
 	
 	public Optional<Compra> buscarCompra(int id);
 	
+	public List<Compra> buscarCompras (String nombreProd, double monto);
 	
 }

@@ -15,8 +15,8 @@ public class ClienteServiceRepositoryImp implements IClienteService{
     
 	@Autowired
 	private IClienteRepository clienteRepository;
-	@Autowired
-	private Cliente cliente;
+	//@Autowired
+	//private Cliente cliente;
 	@Override
 	public void generarList() {
 		// TODO Auto-generated method stub

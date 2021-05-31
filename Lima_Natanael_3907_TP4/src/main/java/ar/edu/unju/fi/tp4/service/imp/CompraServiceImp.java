@@ -48,6 +48,12 @@ public class CompraServiceImp implements ICompraService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<Compra> buscarCompras(String nombreProd, double monto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }
