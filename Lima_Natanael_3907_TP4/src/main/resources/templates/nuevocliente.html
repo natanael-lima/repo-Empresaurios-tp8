@@ -30,34 +30,42 @@
 							    <option value="pasaporte">Pasaporte</option>
 							    <option value="dni">DNI</option>
 						      </select>
+						      <small class="form-text text-danger" th:if="${#fields.hasErrors('tipoDocumento')}" th:errors="*{tipoDocumento}"></small>
 						    </div>
 						  <div class="form-group col-12 col-md-6">
 						    <label for="inputCod4" class="form-label">Ingrese Documento</label>
 						    <input type="number"  th:field="*{nroDocumento}" placeholder="Documento..." class="form-control" id="inputEmail4">
+						  	<small class="form-text text-danger" th:if="${#fields.hasErrors('nroDocumento')}" th:errors="*{nroDocumento}"></small>
 						  </div>
 						  <div class="form-group col-12 col-md-6">
 						    <label for="inputNombre4" class="form-label">Apellido y Nombre</label>
 						    <input type="text"  th:field="*{nombreApellido}" class="form-control" id="inputAddress" placeholder="Pepito Perez" >
+						 	<small class="form-text text-danger" th:if="${#fields.hasErrors('nombreApellido')}" th:errors="*{nombreApellido}"></small>
 						  </div>
 						  <div class="form-group col-12 col-md-6">
 						    <label for="mail" class="form-label">Ingrese E-mail</label>
 						    <input type="email"  th:field="*{mail}"  class="form-control" id="inputAddress" placeholder="facu@unju.com">
+						  	<small class="form-text text-danger" th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></small>
 						  </div>
 						  <div class=" form-group col-12 col-md-6">
 						    <label for="inputAddress2" class="form-label">Fecha Nacimiento</label>
 						    <input type="date"  th:field="*{fechaNacimiento}" class="form-control" id="inputAddress2">
+						  	<small class="form-text text-danger" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></small>
 						  </div>
 						  <div class="form-group col-12 col-md-6">
 						    <label for="inputAddress2" class="form-label">Password</label>
 						    <input  type="password"  th:field="*{password}" class="form-control" id="inputAddress2" placeholder="Ingrese...">
+						    <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
 						  </div>
 						  <div class=" form-group col-12 col-md-6">
 						    <label for="inputAddress2" class="form-label">Ingrese Codigo</label>
 						    <input type="number" th:field="*{codigoAreaTelefono}" class="form-control" id="inputAddress2" placeholder="Codigo..">
+						  	<small class="form-text text-danger" th:if="${#fields.hasErrors('codigoAreaTelefono')}" th:errors="*{codigoAreaTelefono}"></small>
 						  </div>
 						  <div class="form-group col-12 col-md-6">
 						    <label for="inputCity" class="form-label">Telefono</label> 
 						    <input type="number" th:field="*{nroTelefono}" class="form-control" id="inputCity">
+						    <small class="form-text text-danger" th:if="${#fields.hasErrors('nroTelefono')}" th:errors="*{nroTelefono}"></small>
 						  </div>
 						  <div class="form-group col-12 col-md-12">
 						   <h2>Datos de cuenta</h2>
@@ -66,10 +74,12 @@
 						  <div class="form-group col-12 col-md-6">
 						    <label for="saldo" class="form-label">Saldo</label> 
 						    <input type="number" th:field="*{cuenta.saldo}" class="form-control" id="saldo">
+						    <small class="form-text text-danger" th:if="${#fields.hasErrors('cuenta.saldo')}" th:errors="*{cuenta.saldo}"></small>
 						  </div>
 						  <div class="form-group col-12 col-md-6">
 						    <label for="fechaCreacion" class="form-label">Fecha de creacion</label> 
 						    <input type="date" th:field="*{cuenta.fechaCreacion}" class="form-control" id="fechaCreacion">
+						  	<small class="form-text text-danger" th:if="${#fields.hasErrors('cuenta.fechaCreacion')}" th:errors="*{cuenta.fechaCreacion}"></small>
 						  </div>
 						  <div class="form-group col-12 col-md-12">
 						    <h3>Estado</h3>
@@ -79,15 +89,14 @@
 							  <label class="form-check-label" for="flexRadioDefault1">
 							    Activa
 							  </label>
-							  
 						  </div>  
 							<div class="form-check">
 							  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" th:field="*{cuenta.estado}" checked value="Inactiva">
 							 <label class="form-check-label" for="flexRadioDefault2">
 							    Inactiva
-							  </label>
+							  </label>  
 							</div>
-						  
+						  <small class="form-text text-danger" th:if="${#fields.hasErrors('cuenta.estado')}" th:errors="*{cuenta.estado}"></small>
 						  
 						  <div class="form-group col-12"><br>
 						    <button type="submit" class="btn btn-primary">Enviar</button>
