@@ -30,10 +30,12 @@
 						    <select id="producto" th:field="*{producto}">
 						    	<option th:each="produc: ${productos}" th:value="${produc.codigo}" th:text="${produc.nombre}" th:selected="false">
 						    </select>
+<!-- 						    <small class="form-text text-danger" th:if="${#fields.hasErrors('producto.nombre')}" th:errors="*{producto.nombre}"></small>  -->
 						  </div>
 						  <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3">
 						    <label for="mail" class="form-label">Ingrese Cantidad</label>
 						    <input type="number"  th:field="*{cantidad}"  class="form-control" id="inputAddress" placeholder="...">
+						    <small class="form-text text-danger" th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}"></small>
 						  </div>
 						  <div class=" form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3">
 						    <label for="inputAddress2" class="form-label">El Total Se calculara al enviar el formulario</label>
