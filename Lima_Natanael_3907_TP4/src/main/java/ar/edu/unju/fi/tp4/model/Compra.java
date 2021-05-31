@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,10 +22,12 @@ public class Compra {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "com_id")
 	private int id;
+	@Valid
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "pro_codigo")
 	private Producto producto;
 	@Column(name = "com_cantidad")
+	@Min(value = 1, message = "Valor minimo 1")
     private int cantidad;
 	@Column(name = "com_total")
     private double total;

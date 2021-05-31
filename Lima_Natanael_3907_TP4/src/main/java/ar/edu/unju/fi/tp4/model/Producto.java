@@ -30,7 +30,7 @@ public class Producto {
 	private int codigo;
 	@Column(name = "pro_nombre")
 	@NotEmpty(message = "Falta nombre")
-	@Size(min = 3, message = "El nombre no debe ser vacío, como mínimo 3 caracteres")
+	@Size(min = 2, message = "El nombre no debe ser vacío, como mínimo 3 caracteres")
 	private String nombre;
 	@Column(name = "pro_precio")
 	@Min(value = 10)

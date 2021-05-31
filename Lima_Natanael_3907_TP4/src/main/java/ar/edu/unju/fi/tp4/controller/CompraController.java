@@ -2,10 +2,13 @@ package ar.edu.unju.fi.tp4.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,10 +23,8 @@ import ar.edu.unju.fi.tp4.service.IProductoService;
 @Controller
 public class CompraController {
 
-
 	@Autowired
 	private Compra compra;
-
 
 	@Autowired
 	@Qualifier("tableCompraRepository")
@@ -33,7 +34,7 @@ public class CompraController {
 	@Qualifier("tableProductoRepository")
 	private IProductoService productoService;
 
-	//--------------------- TP5 ---------------------
+	// --------------------- TP5 ---------------------
 
 	@GetMapping("/index/compra")
 	public String getFormCompra(Model model) {
@@ -44,26 +45,38 @@ public class CompraController {
 	}
 
 	@PostMapping("/index/guardarCompra")
-	public String getGuardarCompra(@ModelAttribute("compra") Compra compra, Model model) {
+	public String getGuardarCompra(@Valid @ModelAttribute("compra") Compra compra, BindingResult result, Model model) {
 		String errorCompra = "";
-		Producto producto = productoService.buscarProductoID(compra.getProducto().getCodigo());
-		compra.setProducto(producto);
-		if (compra.getCantidad() > producto.getStock()) {
-			errorCompra = "No hay suficiente stock";
+
+		if (compra.getProducto() == null || result.hasErrors()) {
 			model.addAttribute(compra);
 			model.addAttribute("productos", productoService.obtenerListaProducto());
 			model.addAttribute("texto", errorCompra);
+			System.out.println("Hubo errores en el formulario");
 			return "nuevacompra";
 		} else {
 
-			compra.setTotal(producto.getPrecio() * compra.getCantidad());
-			compraService.agregarCompra(compra);
-			model.addAttribute("compras", compraService.obtenerCompras());
+			Producto producto = productoService.buscarProductoID(compra.getProducto().getCodigo());
+			compra.setProducto(producto);
 
-			return "mostrarcompra";
+			if (compra.getCantidad() > producto.getStock()) {
+				errorCompra = "No hay suficiente stock";
+				model.addAttribute(compra);
+				model.addAttribute("productos", productoService.obtenerListaProducto());
+				model.addAttribute("texto", errorCompra);
+				System.out.println("Hubo errores en el formulario");
+				return "nuevacompra";
+			} else {
+				compra.setTotal(producto.getPrecio() * compra.getCantidad());
+				compraService.agregarCompra(compra);
+				model.addAttribute("compras", compraService.obtenerCompras());
+				System.out.println("Se guardo con exito");
+				return "mostrarcompra";
+			}
+
 		}
-
 	}
+
 
 	@GetMapping("/index/listadoCompra")
 	public ModelAndView getCompraListado() {
@@ -76,7 +89,7 @@ public class CompraController {
 	// --------------------- TP7 ---------------------
 
 	// Controller Compra
-	
+
 	@GetMapping("/index/eliminarCompra/{id}")
 	public ModelAndView getEliminarCompra(@PathVariable(value = "id") int param) {
 		ModelAndView model = new ModelAndView("mostrarcompra");
