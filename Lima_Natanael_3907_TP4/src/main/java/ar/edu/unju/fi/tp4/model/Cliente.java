@@ -1,8 +1,6 @@
 package ar.edu.unju.fi.tp4.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,10 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import static java.time.temporal.ChronoUnit.DAYS;
-
-import java.time.Duration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;

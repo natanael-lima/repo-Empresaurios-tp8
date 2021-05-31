@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.tp4.service.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +44,17 @@ public class CompraServiceRepositoryImp implements ICompraService{
 	public Optional<Compra> buscarCompra(int id) {
 		// TODO Auto-generated method stub
 		return compraRepository.findById(id);
+	}
+
+	@Override
+	public List<Compra> buscarCompras(String nombreProd, double monto) {
+		List<Compra> compras = new ArrayList<Compra>();
+		if (!nombreProd.isEmpty() && monto>=0) {
+			compras = compraRepository.findByProductoNombreAndTotalGreaterThanEqual(nombreProd, monto);
+		}else if (nombreProd.isEmpty() && monto>=0){
+			compras = compraRepository.findByTotalGreaterThanEqual(monto);
+		}
+		return compras;
 	}
 
 	
