@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,11 +28,15 @@ public class Cuenta {
 	@Column(name = "cuenta_id")
 	private long id;
 	@Column(name = "cuenta_saldo")
+	@NotNull(message = "Debes introducir un saldo")
+	@Min(value=1,message="Minimo valor 1")
 	private double saldo;
 	@Column(name = "cuenta_fechaCreacion")
+	@NotNull(message = "Debes introducir una fecha")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate fechaCreacion;
 	@Column(name = "cuenta_estado")
+	@NotNull(message = "Debes introducir un estado")
 	private String estado; //ACTIVA, INACTIVA 
 	
 	@Autowired

@@ -2,10 +2,13 @@ package ar.edu.unju.fi.tp4.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,12 +40,21 @@ public class ClienteController {
 	}
 
 	@PostMapping("/index/guardarcliente")
-	public ModelAndView getProcesoGuardar(@ModelAttribute("cliente") Cliente cliente) {
-		ModelAndView model = new ModelAndView("mostrarclientes");
-		clienteService.agregarCliente(cliente);
-		model.addObject("clientes", clienteService.obtenerClientes());
-		model.addObject("cuentas", cuentaService.obtenerCuentas());
-		return model;
+	public ModelAndView getProcesoGuardar(@Valid @ModelAttribute("cliente") Cliente cliente, BindingResult result) {
+		ModelAndView model;
+		if(result.hasErrors()) {
+			model= new ModelAndView("nuevocliente");
+			model.addObject(cliente);
+			return model;
+		}
+		else {
+			clienteService.agregarCliente(cliente);
+			model= new ModelAndView("mostrarclientes");
+			model.addObject("clientes", clienteService.obtenerClientes());
+			model.addObject("cuentas", cuentaService.obtenerCuentas());
+			return model;
+		}
+		
 	}
 
 	@GetMapping("/index/listado")
