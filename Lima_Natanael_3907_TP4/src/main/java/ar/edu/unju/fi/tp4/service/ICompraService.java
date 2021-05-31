@@ -18,4 +18,6 @@ public interface ICompraService {
 	public void eliminarCompra(int id);
 	
 	public Optional<Compra> buscarCompra(int id);
+	
+	
 }

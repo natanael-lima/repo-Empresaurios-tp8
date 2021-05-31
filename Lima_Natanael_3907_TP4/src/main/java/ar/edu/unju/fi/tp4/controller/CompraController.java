@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.tp4.model.Compra;
@@ -68,7 +69,7 @@ public class CompraController {
 	@GetMapping("/index/listadoCompra")
 	public ModelAndView getCompraListado() {
 		ModelAndView model = new ModelAndView("mostrarcompra");
-
+		model.addObject(compra);
 		model.addObject("compras", compraService.obtenerCompras());
 		return model;
 	}
@@ -92,6 +93,15 @@ public class CompraController {
 
 		model.addAttribute("productos", productoService.obtenerListaProducto());
 		return ("nuevacompra");
+	}
+	
+	// --------------------- TP8 ---------------------
+	
+	@GetMapping("/index/buscarCompra")
+	public String buscarCompraPorFiltro (@RequestParam(name="producto.nombre")String nombreProd, @RequestParam(name="total") double monto,Model model, @ModelAttribute(name="compra")Compra compra) {
+		model.addAttribute(compra);
+		model.addAttribute("compras", compraService.buscarCompras(nombreProd, monto));
+		return "mostrarcompra";
 	}
 
 }
