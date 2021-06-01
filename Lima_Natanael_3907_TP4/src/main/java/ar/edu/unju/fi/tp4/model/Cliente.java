@@ -66,13 +66,13 @@ public class Cliente {
 	@Column(name = "cli_codigoAreaTelefono")
 	@NotNull(message = "Debes introducir un codigo de area")
 	@Min(value=3,message="minimo 3 digitos")
-	@Max(value=3,message="maximo 3 digitos")
+	
 	private int codigoAreaTelefono;
 	
 	@Column(name = "cli_nroTelefono")
 	@NotNull(message = "Debes introducir un numero de telofono")
 	@Min(value=6,message="minimo 6 digitos")
-	@Max(value=6,message="maximo 6 digitos")
+	
 	private int nroTelefono;
 
 	
